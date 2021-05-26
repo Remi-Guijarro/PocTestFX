@@ -12,9 +12,15 @@ import javafx.stage.Stage;
 public class AppTest extends ApplicationTest{
 
     private Button button;
+    
+	static {
+        System.setProperty("testfx.robot", "glass");
+        System.setProperty("testfx.headless", "true");
+    }
 
     @Override
     public void start(Stage stage) {
+    
         button = new Button("click me!");
         button.setOnAction(actionEvent -> button.setText("clicked!"));
         stage.setScene(new Scene(new StackPane(button), 100, 100));
